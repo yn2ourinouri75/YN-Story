@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Story 🤍</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #fff7f8, #fce8ed);
+  color: #6b4a52;
+  min-height: 100vh;
+}
+/* Password screen */
+#login {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  text-align: center;
+}
+.login-box {
+  background: rgba(255,255,255,.8);
+  padding: 40px 28px;
+  border-radius: 30px;
+  box-shadow: 0 15px 45px rgba(120,70,80,.15);
+  max-width: 380px;
+  width: 100%;
+}
+.heart {
+  font-size: 55px;
+  animation: heartbeat 1.5s infinite;
+}
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+h1 {
+  font-size: 30px;
+  margin: 15px 0 8px;
+}
+.subtitle {
+  font-size: 15px;
+  opacity: .75;
+  margin-bottom: 25px;
+}
+input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #e8cbd2;
+  border-radius: 15px;
+  outline: none;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
+button {
+  margin-top: 15px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 20px;
+  background: #c98b9b;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+#error {
+  color: #b65d6d;
+  margin-top: 12px;
+  display: none;
+}
+/* Main page */
+#story {
+  display: none;
+  max-width: 850px;
+  margin: auto;
+  padding: 35px 20px 60px;
+}
+.hero {
+  text-align: center;
+  padding: 35px 10px;
+}
+.hero h1 {
+  font-size: 42px;
+}
+.card {
+  background: rgba(255,255,255,.8);
+  border-radius: 25px;
+  padding: 25px;
+  margin: 25px 0;
+  box-shadow: 0 10px 35px rgba(120,70,80,.10);
+}
+.card h2 {
+  text-align: center;
+  font-size: 25px;
+}
+.message {
+  text-align: center;
+  line-height: 1.9;
+  font-size: 17px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.gallery img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+video {
+  width: 100%;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+.date {
+  text-align: center;
+  font-size: 18px;
+}
+footer {
+  text-align: center;
+  margin-top: 45px;
+  opacity: .7;
+}
+@media(max-width:600px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+  .gallery img {
+    height: 180px;
+  }
+}
+</style>
+</head>
+<body>
+<!-- PASSWORD -->
+<section id="login">
+  <div class="login-box">
+    <div class="heart">🤍</div>
+    <h1>Our Little Secret</h1>
+    <p class="subtitle">
+      A little place made just for us ✨
+    </p>
+    <input
+      type="password"
+      id="password"
+      placeholder="Enter our secret password"
+    >
+    <button onclick="unlock()">Enter 🤍</button>
+    <div id="error">
+      Hmm... that's not our secret password 🥺
+    </div>
+  </div>
+</section>
+<!-- MEMORY PAGE -->
+<section id="story">
+  <div class="hero">
+    <div class="heart">🤍</div>
+    <h1>Our Little Story</h1>
+    <p>All the little moments that became our favorite memories.</p>
+  </div>
+  <div class="card">
+    <h2>💌 A Message For You</h2>
+    <div class="message">
+      <p>
+        To my favorite person...
+      </p>
+      <p>
+        Some people become memories,
+        and some people become home.
+        You became my home. 🤍
+      </p>
+      <p>
+        Here's to every laugh, every photo,
+        every little moment and everything
+        we still have to live together.
+      </p>
+      <p>
+        I love our story. ✨
+      </p>
+    </div>
+  </div>
+  <div class="card">
+    <h2>📸 Our Memories</h2>
+    <div class="gallery">
+      <!-- Replace these images with your own -->
+      <img src="photo1.jpg" alt="Our memory">
+      <img src="photo2.jpg" alt="Our memory">
+      <img src="photo3.jpg" alt="Our memory">
+      <img src="photo4.jpg" alt="Our memory">
+    </div>
+  </div>
+  <div class="card">
+    <h2>🎥 Our Moments</h2>
+    <!-- Replace with your own video -->
+    <video controls>
+      <source src="video1.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="card">
+    <h2>🗓️ Our Special Date</h2>
+    <p class="date">
+      The day our story began 🤍
+    </p>
+    <p class="date">
+      ✨ XX / XX / XXXX ✨
+    </p>
+  </div>
+  <footer>
+    Made with love 🤍
+  </footer>
+</section>
+<script>
+function unlock() {
+  const password =
+    document.getElementById("password").value;
+  if (password === "284752") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("story").style.display = "block";
+  } else {
+    document.getElementById("error").style.display = "block";
+  }
+}
+</script>
+</body>
+</html>
